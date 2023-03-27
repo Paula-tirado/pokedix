@@ -1,0 +1,15 @@
+{
+  "name": "poke_dix",
+  "version": "1.0.0",
+  "description": "proyecto de pokemon",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "paula tirado",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.2"
+  },
+  "devDependencies": {}
+}
