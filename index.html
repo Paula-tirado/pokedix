@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>pokedix</title>
 </head>
 <body>
@@ -14,23 +15,26 @@
         <input type="text" name="Buscar" id="buscador" placeholder="buscador">
     </div>
 
-    <div id="card-pokemon" class="card-image">
-        <div class="fondo">
-            <img  id="iamgen-bulbasaur" class="image" src= "" alt="" srcset="">
-            <h2 id="nombres"></h2>
-            <h2 id="abilidades"></h2>
-            <h2 id="atakes"></h2>
-        </div>
-
-        <div class="btn-abajo">
-            <button>
-                <img src=".pokedex-pokemon-details-right .version-labels .version-label.version-y .icon_pokeball"/>
-            </button>
-            <button>
-                <img src="https://th.bing.com/th/id/OIP.whUT8z1QdUa6JHRiLA6WLgHaHa?pid=ImgDet&rs=1"/>
-            </button>
+    <div id="container" class="container">
+        <div id="card-pokemon" class="cardptincipal">
+            <img id="imagen" src= "" alt="" srcset="">
+            <h1 id="nombres"></h1>
+            <button id="myBtn" class="btncaracteristicas">Open Modal</button>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2 id="peso"></h2>
+                    <h2 id="tipo"></h2>
+                    <h2 id="abilidades"></h2>
+                    <h2 id="ataques"></h2>
+                </div>
+            </div>
         </div>
     </div>
+    
+
+<!-- The Modal -->
+
 
     <script src="data_pokemons.js"></script>
     <script src="index.js"></script>

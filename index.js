@@ -1,77 +1,67 @@
- 
-  // const dataApiPokemon = require ("request");
-  // dataApiPokemon.get ("https://pokeapi.co/api/v2/", function (error,respuesta,body){
-    
-  // try {
-  //   if ( request.statusCode === 200){
-  //     const  jsonbody = JSON.parse(body);
-  //      console.log (jsonbody)
-  //       const data = rest.JSON
-  //        data.
-  //     // jsonbody.data.maps(())
-  //   }
-  // } catch (error) {
-  //   console.error(error)
-  // }  
-  // }const abilities = document.getElementById("abilidades")
-    // const abilidades  = abilities.map(({ abilities,}) => ({ [abilities]: value }));
-    // abilitiesDePokemon.innerHTML= pokemon.abilities 
-    // const abilitiesDePokemon = document.getElementById("abilidades");
-    // pokemonGeneral.map((pokemon)=>{
-    // abilitiesDePokemon.innerHTML= pokemon.abilities
-    
-  // )
+const container = document.getElementById("container");
+const cardPokemon = document.getElementById("card-pokemon");
 
-//   document.getElementById("iamgen-bulbasaur");
- 
 
-const nombresDePokemon =  document.getElementById("nombres");
+const nombrePokemon = document.getElementById("nombres");
+const pesoPokemon  = document.getElementById("peso");
+const tipoPokemon = document.getElementById ("tipo");
+const imgPokemon = document.getElementById("imagen");
+const ataquesPokemon = document.getElementById("ataques");
+const habilidadesPokemon =document.getElementById("abilidades");
+// Obtener el modal
+const modal = document.getElementById("myModal");
 
-  pokemonGeneral.map((pokemon)=>{ 
-  nombresDePokemon.innerHTML= pokemon.name
- });
-//  console.log (document.getElementById("nombres"))
+pokemonGeneral.forEach((pokemon)=> {  
+  nombrePokemon.innerHTML= pokemon.collectibles_slug
+  pesoPokemon.innerHTML= pokemon.weight
+  imgPokemon.src= pokemon.ThumbnailImage
+
   
- const habilidadesPokemon= document.getElementById("abilidades");
 
-  pokemonGeneral.map((pokemon)=>{
-  habilidadesPokemon.innerHTML=pokemon.abilities
-
-  const recorridoHabilidades = document.getElementById("abilidades");
-    abilities.map ((pokemon)=>{
-    recorridoHabilidades= pokemon.abilities
+  pokemon.type.forEach((type)=>{
+    tipoPokemon.innerHTML= type
   })
- })
-  // console.log (document.getElementById("abilidades"))
-  const atakesDePokemon = document.getElementById("atakes");
-
-  pokemonGeneral.map((pokemon)=>{
-    atakesDePokemon.innerHTML= pokemon.attacks
+  pokemon.abilities.forEach((ability)=> {
+    habilidadesPokemon.innerHTML = ability
   })
+  // Aqui estamos clonando una card
+  const cardPokemonClone = cardPokemon.cloneNode(true) // con el true es una clonacion del padre y los elementos hijos (deepClone)
+  // Al contenedor padre que agregue la tarjet clonada
+  container.appendChild(cardPokemonClone)
 
-//   console.log (pokemongeneral .find((pokemon)=>pokemon.name==="bulbasaur"))
-//  const bulbasaur = pokemongeneral .find((pokemon)=>pokemon.name==="bulbasaur")
-//  console.log (document.getElementById("iamgen-bulbasaur").src =bulbasaur.img)
-//  console.log (bulbasaur.img);
+  
 
-
+  // pokemon.attacks.forEach((attack)=> {
+  //   ataquesPokemon.innerHTML= attack.name
+  // })
  
-
-//  const  elementCard = document.getElementById("card-pokemon");
-//   function duplicateElementCard (elemnt){
-//     pokemonGeneral.map (()=>{
-// // console.log(pokemon)
-//     })
-//   } 
-
-// duplicateElementCard( elementCard);
-
-
-  
+});
 
 
 
 
+// Obtener el botón que abre el modal
+const btn = document.getElementById("myBtn");
+
+// Obtener el elemento <span> que cierra el modal
+const span = document.getElementsByClassName("close")[0];
+
+// Cuando el usuario haga clic en el botón, abra la modal(femenino)
+ 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
 
 
-  
+// Cuando el usuario hace clic en <span> (x), cierra el modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+
+// Cuando el usuario haga clic en cualquier lugar fuera del modal, ciérrelo
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
